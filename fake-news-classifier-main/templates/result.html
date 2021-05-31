@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fake News Result</title>
+  <style>
+    /* Element | http://127.0.0.1:5000/ */
+
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 100%;
+      width: 100%;
+      margin: 0;
+    }
+
+    /* Element | http://127.0.0.1:5000/ */
+
+    html {
+      height: 100%;
+      width: 100%;
+    }
+
+    /* Element | http://127.0.0.1:5000/ */
+
+    body>div:nth-child(1) {
+      margin: 0 auto;
+      text-align: center;
+      font-size: 3em;
+    }
+  </style>
+</head>
+
+<body style="
+    {% if result %}
+    background-color: #399E5A;
+    {% else %}
+    background-color: red;
+    {% endif %}
+">
+  <div>
+    The given news article was predicted to be
+    <br>
+    <h3>
+      {% if result %}
+      True
+      {% else %}
+      Fake
+      {% endif %}
+    </h3>
+
+    <div>
+      <img src="data:image/png;base64,{{ true_plot }}" alt="" srcset="">
+      <img src="data:image/png;base64,{{ false_plot }}" alt="" srcset="">
+    </div>
+    <br>
+    <div style="display: flex;">
+      {% if result %}
+      <div style="
+        width: {{ [90,truth_prob|int]|min }}%;
+        background-color: #011638;
+        color: white;
+        min-height: 1em;
+      ">
+      <!-- Truth probability {{ "%.2f"|format(truth_prob) }}% -->
+      </div><div style="
+        width: {{ 100 - [90,truth_prob|int]|min }}%;
+        background-color: #F1E8B8;
+        min-height: 1em;
+      ">
+      <!-- Fake Probability {{ "%.2f"|format(fake_prob) }}% -->
+    </div>
+    {% else %}
+    <div style="
+        width: {{ 100 - [90,fake_prob|int]|min }}%;
+        background-color: #011638;
+        color: white;
+        min-height: 1em;
+      ">
+      <!-- Truth probability {{ "%.2f"|format(truth_prob) }}% -->
+    </div><div style="
+        width: {{ [90,fake_prob|int]|min }}%;
+        background-color: #F1E8B8;
+        min-height: 1em;
+      ">
+      <!-- Fake Probability {{ "%.2f"|format(fake_prob) }}% -->
+    </div>
+    {% endif %}
+    </div>
+  </div>
+</body>
+
+</html>

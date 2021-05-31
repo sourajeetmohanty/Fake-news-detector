@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fake News Detector</title>
+    <style>
+
+/* Inline #0 | http://127.0.0.1:5000/ */
+
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
+/* Element | http://127.0.0.1:5000/ */
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: linear-gradient(90deg, #9ebd13 0%, #008552 100%);
+  margin: 0;
+}
+
+/* Element | http://127.0.0.1:5000/ */
+
+body > div:nth-child(1) {
+  margin: 0 auto;
+}
+
+/* Element | http://127.0.0.1:5000/ */
+
+body > div:nth-child(1) > form:nth-child(1) > div:nth-child(1) {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Element | http://127.0.0.1:5000/ */
+
+#article_input {
+  width: 20vw;
+}
+
+body > div:nth-child(1) > div:nth-child(5) {
+ display: flex;
+ width: 100%;
+}
+
+.form-wrapper {
+  /* border: 3px solid transparent;
+    border-image: linear-gradient(to right, red, purple);
+    border-image-slice: 1; */
+    box-shadow:
+  0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+  0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+  0 12.5px 10px rgba(0, 0, 0, 0.06),
+  0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+  0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+  0 100px 80px rgba(0, 0, 0, 0.12);
+    padding: 3rem;
+    background-color: #FBFAF8;
+    border-radius: 1%;
+}
+
+.form-input {
+  margin: 1em;
+  font-size: 1.3em;
+}
+
+.form-submit {
+  padding: 1em 7em;
+  margin: auto;
+}
+
+.btn-1 {
+  font-family: monospace;
+  background: #0A122A;
+  color: #FBFAF8;
+  cursor: pointer;
+  font-size: 1.3em;
+  padding: 1.5rem;
+  border: 0;
+  transition: all 0.5s;
+  border-radius: 10px;
+  width: auto;
+  position: relative;
+}
+.btn-1::after {
+  font-weight: 400;
+  position: absolute;
+  opacity: 0;
+}
+.btn-1:hover {
+  background: #2b2bff;
+  transition: all 0.5s;
+  border-radius: 10px;
+  box-shadow: 0px 6px 15px #0000ff61;
+  /* padding: 1.5rem 3.5rem 1.5rem 1.5rem; */
+}
+.btn-1:hover::after {
+  opacity: 1;
+  transition: all 0.5s;
+}
+
+    </style>
+</head>
+<body>
+    <div>
+        <form action="/" method="post">
+            <div class="form-wrapper">
+                <h3 class="form-input" style="text-align: center; font-family: monospace; font-size: 2em;">Verify the news</h3>
+                <textarea class="form-input" name="article" id="article_input" placeholder="Enter a news article"rows="4"></textarea>
+                <br>
+                <input class="form-input btn-1" type="submit" value="Predict">
+            </div>
+        </form>
+    </div>
+</body>
+</html>
